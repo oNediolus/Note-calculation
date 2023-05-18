@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>符計算</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        
+        h1 {
+            text-align: center;
+        }
+        
+        .container {
+            margin: 20px auto;
+            width: 400px;
+        }
+        
+        .form-group {
+            margin-bottom: 10px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        select {
+            width: 100%;
+            padding: 5px;
+        }
+        
+        button {
+            width: 100%;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>符計算</h1>
+        <div class="form-group">
+            <label for="agari">アガリ方:</label>
+            <select id="agari">
+                <option value="10">面前ロン</option>
+                <option value="0">鳴きロン</option>
+                <option value="2">ツモ</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="mentsu">各面子:</label>
+            <select id="mentsu">
+                <option value="0">順子</option>
+                <option value="4">么九牌 - 明刻</option>
+                <option value="8">么九牌 - 暗刻</option>
+                <option value="16">么九牌 - 明槓</option>
+                <option value="32">么九牌 - 暗槓</option>
+                <option value="2">中張牌 - 明刻</option>
+                <option value="4">中張牌 - 暗刻</option>
+                <option value="8">中張牌 - 明槓</option>
+                <option value="16">中張牌 - 暗槓</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="mentsu">各面子:</label>
+            <select id="mentsu">
+                <option value="0">順子</option>
+                <option value="4">么九牌 - 明刻</option>
+                <option value="8">么九牌 - 暗刻</option>
+                <option value="16">么九牌 - 明槓</option>
+                <option value="32">么九牌 - 暗槓</option>
+                <option value="2">中張牌 - 明刻</option>
+                <option value="4">中張牌 - 暗刻</option>
+                <option value="8">中張牌 - 明槓</option>
+                <option value="16">中張牌 - 暗槓</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="mentsu">各面子:</label>
+            <select id="mentsu">
+                <option value="0">順子</option>
+                <option value="4">么九牌 - 明刻</option>
+                <option value="8">么九牌 - 暗刻</option>
+                <option value="16">么九牌 - 明槓</option>
+                <option value="32">么九牌 - 暗槓</option>
+                <option value="2">中張牌 - 明刻</option>
+                <option value="4">中張牌 - 暗刻</option>
+                <option value="8">中張牌 - 明槓</option>
+                <option value="16">中張牌 - 暗槓</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="mentsu">各面子:</label>
+            <select id="mentsu">
+                <option value="0">順子</option>
+                <option value="4">么九牌 - 明刻</option>
+                <option value="8">么九牌 - 暗刻</option>
+                <option value="16">么九牌 - 明槓</option>
+                <option value="32">么九牌 - 暗槓</option>
+                <option value="2">中張牌 - 明刻</option>
+                <option value="4">中張牌 - 暗刻</option>
+                <option value="8">中張牌 - 明槓</option>
+                <option value="16">中張牌 - 暗槓</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="jantou">雀頭:</label>
+            <select id="jantou">
+                <option value="0">それ以外</option>
+                <option value="2">役牌</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="wait">待ちの形:</label>
+            <select id="wait">
+                <option value="0">シャンポン</option>
+                <option value="0">リャンメン</option>
+                <option value="2">ペンチャン</option>
+                <option value="2">カンチャン</option>
+                <option value="2">タンキ</option>
+                <option value="2">ノベタン</option>
+            </select>
+        </div>
+        <button onclick="calculate()">計算する</button>
+        <div id="result" style="margin-top: 20px;"></div>
+    </div>
+
+    <script>
+        function calculate() {
+            var n = 20; // 初期値は基本符の20
+
+            // アガリ方の符加算
+            var agari = document.getElementById('agari').value;
+            n += parseInt(agari);
+
+            // 各面子の符加算
+            var mentsu = document.getElementById('mentsu').value;
+            n += parseInt(mentsu) * 4;
+
+            // 雀頭の符加算
+            var jantou = document.getElementById('jantou').value;
+            n += parseInt(jantou);
+
+            // 待ちの形の符加算
+            var wait = document.getElementById('wait').value;
+            n += parseInt(wait);
+
+            // 1の位を繰り上げる
+            n = Math.ceil(n / 10) * 10;
+
+            // 結果の表示
+            document.getElementById('result').innerHTML = '得点: ' + n + '符';
+        }
+    </script>
+</body>
+</html>
+
